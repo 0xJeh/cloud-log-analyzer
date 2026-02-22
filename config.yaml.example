@@ -1,0 +1,38 @@
+# Elasticsearch configuration
+elasticsearch:
+  host: localhost:9200
+  index_prefix: cloud-logs
+  username: elastic  # optional
+  password: changeme  # optional
+
+# AWS configuration
+aws:
+  regions:
+    - us-east-1
+    - us-west-2
+  log_groups:
+    - /aws/lambda/my-function
+    - /aws/ecs/my-service
+
+# Azure configuration
+azure:
+  subscription_id: your-subscription-id
+  workspace_id: your-workspace-id
+  resource_groups:
+    - production-rg
+    - staging-rg
+
+# GCP configuration
+gcp:
+  projects:
+    - my-project-prod
+    - my-project-dev
+  log_filters:
+    - resource.type="gce_instance"
+    - resource.type="cloud_function"
+
+# Analysis settings
+analysis:
+  error_threshold: 0.1  # 10% error rate threshold
+  anomaly_detection: true
+  time_window: 24h
